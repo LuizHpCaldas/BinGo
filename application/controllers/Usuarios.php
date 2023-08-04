@@ -11,7 +11,14 @@ class Usuarios extends CI_Controller {
     }
 
     public function index() {
-        
+
+        $data = array(
+            'usuarios' => $this->ion_auth->users()->result(), //pega todos os usuarios
+        );
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('usuarios/index');
+        $this->load->view('layout/footer');
     }
    
 }
