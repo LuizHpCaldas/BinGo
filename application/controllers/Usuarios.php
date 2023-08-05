@@ -16,6 +16,9 @@ class Usuarios extends CI_Controller{
             'usuarios' => $this->ion_auth->users()->result(), //pega todos os usuarios
         );
 
+        echo '<pre>';
+        print_r($data['usuarios']);
+
         $this->load->view('layout/header', $data);
         $this->load->view('usuarios/index');
         $this->load->view('layout/footer');
