@@ -27,29 +27,29 @@
             </div>
             <div class="card-body">
 
-            <form>
+            <form method="POST" name="form_edit">
           <div class="form-group row">
               <div class="col-md-4">
                 <label>Nome</label>
                 <input type="text" class="form-control" name="first_name" value="<?php echo $usuario->first_name; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <?php echo form_error('first_name', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Sobrenome</label>
                 <input type="text" class="form-control" name="last_name" value="<?php echo $usuario->last_name; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                
               </div>
 
               <div class="col-md-4">
                 <label>Usuario</label>
-                <input type="email" class="form-control" name="username" value="<?php echo $usuario->username; ?>">
+                <input type="text" class="form-control" name="username" value="<?php echo $usuario->username; ?>">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
 
               <div class="col-md-4">
                 <label>Email</label>
-                <input type="text" class="form-control" name="email" value="<?php echo $usuario->email; ?>">
+                <input type="email" class="form-control" name="email" value="<?php echo $usuario->email; ?>">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
 
