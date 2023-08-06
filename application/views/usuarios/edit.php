@@ -14,7 +14,7 @@
 
         <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-         <li class="breadcrumb-item"><a href="<?php echo base_url('/'); ?>" >Home</a></li>
+         <li class="breadcrumb-item"><a href="<?php echo base_url('usuarios'); ?>" >Usuarios</a></li>
          <li class="breadcrumb-item active" aria-current="page"><?php echo $titulo; ?></li>
       </ol>
         </nav>
@@ -23,46 +23,39 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <a href="" class="btn btn-success btn-sm float-right"><i class="fas fa-user-plus"></i>&nbsp Novo </a>
+            <a href="<?php echo base_url('usuarios'); ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-angle-left"></i>&nbsp Voltar </a>
             </div>
             <div class="card-body">
            
-                <table class="table table-bordered dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Usuario</th>
-                      <th>Email</th>
-                      <th>Ativo</th>
-                      <th class= "text-right no-sort">Ações</th>
-                      
-                    </tr>
-                  </thead>
+            
                   
                   <tbody>
-                  <?php foreach ($usuarios as $user): ?>
+                 
 
-                    <tr>
-                      <td> <?php echo $user->id ?> </td>
-                      <td> <?php echo $user->username ?> </td>
-                      <td> <?php echo $user->email ?> </td>
-                      <td> <?php echo $user->active ?> </td>
-                      <td> 
-                        <a title="Editar" href="<?php echo base_url('usuarios/edit/'. $user->id); ?>" class="btn btn-sm btn-primary"> <i class="fas fa-user-edit"></i> </a>
-                        <a title="Excluir" href="" class="btn btn-sm btn-danger"> <i class="fas fa-user-times"></i> </a>
-                      </td>
-                    </tr>
-                      <?php endforeach; ?>
+                  <form>
+                
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                       
+                   
+                     
                   </tbody>
                 </table>
-              </div>
+              
             </div>
           </div>
 
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      
+     
