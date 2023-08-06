@@ -15,7 +15,7 @@ class Usuarios extends CI_Controller{
         $data = array(
 
             'styles' => array(
-                'vendor/fontawesome-free/css/all.min.css',
+                'vendor/datatables/dataTables.bootstrap4.min.css',
             ),
 
             'scripts' => array(
