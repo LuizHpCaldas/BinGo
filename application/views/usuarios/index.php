@@ -34,7 +34,7 @@
                       <th>Usuario</th>
                       <th>Email</th>
                       <th>Ativo</th>
-                      <th>Ações</th>
+                      <th class= "text-right no-sort">Ações</th>
                       
                     </tr>
                   </thead>
