@@ -13,6 +13,17 @@ class Usuarios extends CI_Controller{
     public function index() {
 
         $data = array(
+
+            'styles' => array(
+                'vendor/fontawesome-free/css/all.min.css',
+            ),
+
+            'scripts' => array(
+                'vendor/datatables/jquery.dataTables.min.js',
+                'vendor/datatables/dataTables.bootstrap4.min.js',
+                'vendor/datatables/app.js'
+            ),
+
             'usuarios' => $this->ion_auth->users()->result(), //pega todos os usuarios
         );
 
