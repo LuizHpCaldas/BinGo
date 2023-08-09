@@ -37,19 +37,20 @@
 
         if($tabela && is_array($data)){
 
-            $this->db->insert($tabela, $data);
+        $this->db->insert($tabela, $data);
 
             if($get_last_id) {
                 $this->session->set_userdata('las_id', $this->db->insert_id());
             }
 
-            if($this->db->affcted_rows() > 0){
+                if($this->db->affcted_rows() > 0){
                 
                 $this->session->set_flashdata('sucesso', 'Dados salvos com sucesso!');
 
-            }else{
-                $this->session->set_flashdata('error', 'Erro ao salvar dados!')
-            }
+                }else{
+                    $this->session->set_flashdata('error', 'Erro ao salvar dados!');
+                    }
+        
 
         }else{
          
@@ -88,9 +89,9 @@
                 foreach ($error as $code) {
                     if($code == 1451){
                         $this->session->set_flashdata('error', 'Este Registro nao podera ser excluido pois esta sendo utilizado!');
-                    }
-                }else {
-                    $this->session->set_flashdata('sucesso', 'Registro excluido com sucesso!');
+                    }else{
+                        $this->session->set_flashdata('sucesso', 'Registro excluido com sucesso!');
+                }
                 }
             }
 

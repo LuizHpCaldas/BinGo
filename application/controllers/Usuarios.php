@@ -98,17 +98,12 @@ class Usuarios extends CI_Controller{
         if($this->core_model->get_by_id('users', array('email' => $email, 'id !=' => $usuario_id))){
 
         $this->form_validation->set_message('email_check','Este email ja esta em uso');
-        
-        return FALSE;
 
+            return FALSE;
         }else{
-        
             return TRUE;
-    
         }
 
-
-    
     }
 
 }
