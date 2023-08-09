@@ -43,10 +43,18 @@ class Usuarios extends CI_Controller{
 
         if(!$user_id || !$this->ion_auth->user($user_id)->row()){
 
-            exit('Usuario, Nao encontrado!');
+            $this->session->set_flashdata('error','Usuario nao encontrado');
+            redirect('usuarios');
+
         }else {
 
             $this->form_validation->set_rules('first_name', '', 'trim|required');
+            $this->form_validation->set_rules('last_name', '', 'trim|required');  
+            $this->form_validation->set_rules('username', '', 'trim|required');
+            $this->form_validation->set_rules('email', '', 'trim|required|valid_email|callback_email_check'); 
+            $this->form_validation->set_rules('password', 'Senha', 'min_length[5]|max_length[255]'); 
+            $this->form_validation->set_rules('confirm_password', 'Confirme', 'matches[password]');   
+
 
             if($this->form_validation->run()){
 
@@ -66,12 +74,42 @@ class Usuarios extends CI_Controller{
                 $this->load->view('usuarios/edit');
                 $this->load->view('layout/footer');
 
+           
+           
             }
 
  
 
         }
+    
 
-      
+
+
+
+
+
+
     }
+
+    public function email_check($email) {
+
+        $usuario_id = $this->input->post('usuario_id');
+
+        if($this->core_model->get_by_id('users', array('email' => $email, 'id !=' => $usuario_id))){
+
+        $this->form_validation->set_message('email_check','Este email ja esta em uso');
+        
+        return FALSE;
+
+        }else{
+        
+            return TRUE;
+    
+        }
+
+
+    
+    }
+
 }
+    

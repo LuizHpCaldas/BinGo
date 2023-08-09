@@ -38,19 +38,19 @@
               <div class="col-md-4">
                 <label>Sobrenome</label>
                 <input type="text" class="form-control" name="last_name" value="<?php echo $usuario->last_name; ?>">
-                
+                <?php echo form_error('last_name', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Usuario</label>
                 <input type="text" class="form-control" name="username" value="<?php echo $usuario->username; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <?php echo form_error('username', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" value="<?php echo $usuario->email; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <?php echo form_error('email', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
@@ -80,18 +80,20 @@
               </div>
 
 
-
               <div class="col-md-6">
                 <label>Senha</label>
-                <input type="password" class="form-control" name="confirm_password" value="<?php echo $usuario->password; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <input type="password" class="form-control" name="password">
+                <?php echo form_error('password', '<div class="text-danger">',' </div>'); ?>
               </div>
+
 
               <div class="col-md-6">
                 <label>Confirme a senha</label>
-                <input type="password" class="form-control" name="password" value="<?php echo $usuario->password; ?>">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <input type="password" class="form-control" name="confirm_password">
+                <?php echo form_error('confirm_password', '<div class="text-danger">',' </div>'); ?>
               </div>
+
+
 
               
               
