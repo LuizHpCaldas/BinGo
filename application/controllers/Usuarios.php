@@ -58,6 +58,37 @@ class Usuarios extends CI_Controller{
 
             if($this->form_validation->run()){
 
+                $data = elements(
+
+                    array(
+                        'first_name',
+                        'last_name',
+                        'email',
+                        'username',
+                        'active',
+                        'password',
+                    ), $this->input->post()
+
+                );          
+
+                $data = $this->security->xss_clean($data);
+               
+               
+                /*Virificando se a senha foi passada*/ 
+                $password =$this->input->post('password');
+
+                if(!$password){
+                    unset($data['password']);
+                }
+
+
+            //[perfil_usuario] => 1  
+            
+            echo '<pre>';
+            print_r($data);
+            exit();    
+
+
                 exit('validado');
 
             }else{
