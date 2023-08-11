@@ -59,7 +59,7 @@
 
                   <select class="form-control" name="active">
                       
-                      <option value="2" <?php echo ($usuario->active == 2) ? 'selected' : '' ?>>Nao</option>
+                      <option value="0" <?php echo ($usuario->active == 0) ? 'selected' : '' ?>>Nao</option>
                       <option value="1" <?php echo ($usuario->active == 1) ? 'selected' : '' ?>>Sim</option>
                          
                   </select>
@@ -70,10 +70,10 @@
                   
                   <label>Perfil</label>
 
-                  <select class="form-control" name="perfil">
+                  <select class="form-control" name="perfil_usuario">
                       
-                      <option value="2" <?php echo ($perfil->id == 2) ? 'selected' : '' ?>>Vendedor</option>
-                      <option value="1" <?php echo ($perfil->id == 1) ? 'selected' : '' ?>>Administrador</option>
+                      <option value="2" <?php echo ($perfil_usuario->id == 2) ? 'selected' : '' ?>>Vendedor</option>
+                      <option value="1" <?php echo ($perfil_usuario->id == 1) ? 'selected' : '' ?>>Administrador</option>
                          
                   </select>
           
