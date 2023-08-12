@@ -31,25 +31,25 @@
           <div class="form-group row">
               <div class="col-md-4">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="first_name" value="">
+                <input type="text" class="form-control" name="first_name" value="<?php echo set_value('first_name'); ?>">
                 <?php echo form_error('first_name', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Sobrenome</label>
-                <input type="text" class="form-control" name="last_name" value="">
+                <input type="text" class="form-control" name="last_name" value="<?php echo set_value('last_name'); ?>">
                 <?php echo form_error('last_name', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Usuario</label>
-                <input type="text" class="form-control" name="username" value="">
+                <input type="text" class="form-control" name="username" value="<?php echo set_value('username'); ?>">
                 <?php echo form_error('username', '<div class="text-danger">',' </div>'); ?>
               </div>
 
               <div class="col-md-4">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" value="">
+                <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>">
                 <?php echo form_error('email', '<div class="text-danger">',' </div>'); ?>
               </div>
 
