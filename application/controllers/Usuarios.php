@@ -222,5 +222,28 @@ class Usuarios extends CI_Controller{
 
     }
 
+    public function del($usuario_id = NULL){
+        
+        if (!$usuario_id || !$this->ion_auth->user($usuario_id)->row()){
+
+            $this->session->set_flashdata('error', 'Usuario nao encontrado!');
+            redirect('usuarios');
+        }
+
+        if ($this->ion_auth->is_admin($usuario_id)) {
+            $this->session->set_flashdata('error', 'Usuario nao pode ser deletado');
+            redirect('usuarios');
+        }
+
+        if($this->ion_auth->delete_user($usuario_id)){
+            $this->session->set_flashdata('sucesso', 'Usuario deletado');
+            redirect('usuarios');
+        }else{
+            $this->session->set_flashdata('error', 'Usuario nao pode ser deletado');
+            redirect('usuarios');
+        }
+
+    }
+
 }
     

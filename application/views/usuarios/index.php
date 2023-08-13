@@ -81,6 +81,7 @@
                     <tr>
                       <th>#</th>
                       <th>Usuario</th>
+                      <th>Perfil</th>
                       <th>Email</th>
                       <th class="text-center">Ativo</th>
                       <th class= "text-right no-sort">Ações</th>
@@ -94,13 +95,35 @@
                     <tr>
                       <td> <?php echo $user->id ?> </td>
                       <td> <?php echo $user->username ?> </td>
+                      <td> <?php echo ($this->ion_auth->is_admin($user->id) ? 'Administrador' : 'Vendedor'); ?> </td>
                       <td> <?php echo $user->email ?> </td>
-                      <td class="text-center pr-4"> <?php echo ($user->active == 1 ? '<button type="button" class="btn btn-success btn-sm">Sim</button>' : '<button type="button" class="btn btn-danger btn-sm">Nao</button>') ?> </td>
+                      <td class="text-center pr-4"> <?php echo ($user->active == 1 ? '<button type="button" class="btn btn-success btn-sm"><i class="far fa-check-circle"></i> Sim</button>' : '<button type="button" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i> Nao</button>') ?> </td>
                       <td> 
                         <a title="Editar" href="<?php echo base_url('usuarios/edit/'. $user->id); ?>" class="btn btn-sm btn-primary"> <i class="fas fa-user-edit"></i> </a>
-                        <a title="Excluir" href="" class="btn btn-sm btn-danger"> <i class="fas fa-user-times"></i> </a>
+                        <a title="Excluir" href="javascript(void)"  data-bs-toggle="modal" data-bs-target="#user-<?php echo $user->id; ?>" class="btn btn-sm btn-danger"> <i class="fas fa-user-times"></i> </a>
                       </td>
                     </tr>
+
+                    <div class="modal fade" id="user-<?php echo $user->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Quer mesmo deletar?</h5>
+                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">Ao clicar em <strong>"Excluir"</strong> Voce apagara este usuario.</div>
+                        <div class="modal-footer">
+                          <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                          <a class="btn btn-danger btn-sm" href="<?php echo base_url('usuarios/del/'.$user->id); ?>">Excluir</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
                       <?php endforeach; ?>
                   </tbody>
                 </table>
